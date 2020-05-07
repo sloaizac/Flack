@@ -1,6 +1,0 @@
-Flask
-Flask-Session
-psycopg2-binary
-SQLAlchemy
-Werkzeug==0.16
-requests
