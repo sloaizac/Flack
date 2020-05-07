@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flack</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css')}}">
+    <script src="https://kit.fontawesome.com/25371e96f4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="main">
+        <label for="username">username:</label>
+        <input type="text" id="username" autocomplete="off" placeholder="username">
+        <form id="channel-form">
+            <input type="text" id="channel" autocomplete="off" placeholder="channel name">
+            <button type="submit" id="new-channel">new channel</button>
+        </form>
+        <p>Other channels:</p>
+        {% for c in channels %}
+        <div class="channel" name="channel-box" data-room={{c}}>
+            {{c}}
+        </div>
+        {% endfor %}
+    </div>
+    <div id="container">
+        <div id="channel-name"></div>
+        <div id="box-msg">
+            <div id="emoji-box"></div>
+        </div>
+        <form id="form">
+            <div>
+                <input type="text" id="input-msg" autocomplete="off" autofocus>
+                <i class="far fa-smile-beam"></i>
+            </div>
+            <button type="submit">send</button>
+        </form>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='index.js')}}"></script>
+</body>
+
+</html>
